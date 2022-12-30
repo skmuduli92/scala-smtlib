@@ -69,6 +69,7 @@ object Tokens {
   case object CheckSatAssuming extends ReservedWord
   case object DeclareConst extends ReservedWord
   case object DeclareFun extends ReservedWord
+  case object DeclareOracleFun extends ReservedWord
   case object DeclareSort extends ReservedWord
   case object DefineFun extends ReservedWord
   case object DefineFunRec extends ReservedWord
@@ -114,6 +115,7 @@ object Tokens {
     case CheckSatAssuming => "check-sat-assuming"
     case DeclareConst => "declare-const"
     case DeclareFun => "declare-fun"
+    case DeclareOracleFun => "declare-oracle-fun"
     case DeclareSort => "ddeclare-sort"
     case DefineFun => "define-fun"
     case DefineFunRec => "define-fun-rec"

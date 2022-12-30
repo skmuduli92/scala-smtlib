@@ -174,6 +174,14 @@ abstract class TreeTransformer {
       val ndf = DeclareFun(nameNew, sortsNew, sortNew)
       (ndf, combine(cmd, context, nameRes +: sortsRes :+ sortRes))
 
+    // TODO: Investigate this further
+    case DeclareOracleFun(name, binName, paramSorts, returnSort) =>
+      val (nameNew, nameRes) = transformSymbol(name, context)
+      val (sortsNew, sortsRes) = paramSorts.map(s => transform(s, context)).unzip
+      val (sortNew, sortRes) = transform(returnSort, context)
+      val ndf = DeclareOracleFun(nameNew, binName, sortsNew, sortNew)
+      (ndf, combine(cmd, context, nameRes +: sortsRes :+ sortRes))
+
     case DeclareSort(name, arity) =>
       val (nameNew, nameRes) = transformSymbol(name, context)
       (DeclareSort(nameNew, arity), combine(cmd, context, Seq(nameRes)))

@@ -159,6 +159,7 @@ object Commands {
 
   case class DeclareConst(name: SSymbol, sort: Sort) extends Command
   case class DeclareFun(name: SSymbol, paramSorts: Seq[Sort], returnSort: Sort) extends Command
+  case class DeclareOracleFun(name: SSymbol, oracleBin: SSymbol, paramSorts: Seq[Sort], returnSort: Sort) extends Command
   case class DeclareSort(name: SSymbol, arity: Int) extends Command
   case class DefineFun(funDef: FunDef) extends Command
   case class DefineFunRec(funDef: FunDef) extends Command

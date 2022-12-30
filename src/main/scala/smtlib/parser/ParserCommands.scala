@@ -49,6 +49,20 @@ trait ParserCommands { this: ParserCommon with ParserTerms =>
       val sort = parseSort
       DeclareFun(sym, params.toList, sort)
     }
+
+    case Tokens.DeclareOracleFun => {
+      val sym = parseSymbol
+      val oracleBin = parseSymbol // FIXME: parsing it as a symbol, but this should be a file path
+      val params = new ListBuffer[Sort]
+      eat(Tokens.OParen)
+      while (peekToken.kind != Tokens.CParen)
+        params.append(parseSort)
+      eat(Tokens.CParen)
+
+      val sort = parseSort
+      DeclareOracleFun(sym, oracleBin, params.toList, sort)
+    }
+
     case Tokens.DeclareSort => {
       val sym = parseSymbol
       val arity = parseNumeral

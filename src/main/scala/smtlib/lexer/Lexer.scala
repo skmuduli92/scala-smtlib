@@ -249,6 +249,7 @@ class Lexer(reader: java.io.Reader) {
       case "check-sat-assuming" => Token(CheckSatAssuming)
       case "declare-const" => Token(DeclareConst)
       case "declare-fun" => Token(DeclareFun)
+      case "declare-oracle-fun" => Token(DeclareOracleFun)
       case "declare-sort" => Token(DeclareSort)
       case "define-fun" => Token(DefineFun)
       case "define-fun-rec" => Token(DefineFunRec)

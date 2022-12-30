@@ -205,6 +205,14 @@ class PrintingContext(writer: Writer) {
       print(returnSort)
       print(")\n")
 
+    case DeclareOracleFun(name, binName, paramSorts, returnSort) =>
+      print("(declare-fun ")
+      print(name)
+      print(binName)
+      printNary(paramSorts, " (", " ", ") ")
+      print(returnSort)
+      print(")\n")
+
     case DeclareSort(name, arity) =>
       print("(declare-sort ")
       print(name)
