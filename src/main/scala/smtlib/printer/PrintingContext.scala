@@ -208,6 +208,7 @@ class PrintingContext(writer: Writer) {
     case DeclareOracleFun(name, binName, paramSorts, returnSort) =>
       print("(declare-fun ")
       print(name)
+      print(" ")
       print(binName)
       printNary(paramSorts, " (", " ", ") ")
       print(returnSort)
